@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postador.io - Baixar Imagem</title>
+    <style>
+        body {
+            background-color: #FFDEAD;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 10%;
+        }
+        h2 {
+            color: #000;
+        }
+        .button {
+            background-color: #8B0000;
+            color: #FFF;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        #nextButton {
+            display: none;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const imageUrl = sessionStorage.getItem('selectedImage');
+            const imageElement = document.getElementById('image');
+            imageElement.src = imageUrl;
+
+            document.getElementById('downloadButton').addEventListener('click', () => {
+                fetch(imageUrl)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        const url = window.URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = 'imagem.png';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                        setTimeout(() => {
+                            document.getElementById('nextButton').style.display = 'inline-block';
+                        }, 3000);
+                    })
+                    .catch(() => alert('Erro ao baixar a imagem.'));
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Imagem escolhida</h2>
+    <img id="image" src="" alt="Imagem Escolhida">
+    <div class="button-container">
+        <button id="downloadButton" class="button">Baixar</button>
+        <a id="nextButton" href="postar.html" class="button">Próximo</a>
+    </div>
+</body>
+</html>
