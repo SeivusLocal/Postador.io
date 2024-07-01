@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postador.io - Imagem Gerada</title>
+    <style>
+        body {
+            background-color: #FFDEAD;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 10%;
+        }
+        h2 {
+            color: #000;
+        }
+        .button {
+            background-color: #8B0000;
+            color: #FFF;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            {
+                src: "https://i.postimg.cc/HxHv5t9c/2-20240701-194434-0001.png",
+                colorVersions: [
+                    "https://i.postimg.cc/c1FkgwgC/1-20240701-194433-0000.png",
+                    "https://i.postimg.cc/CLdPj5kN/3-20240701-194434-0002.png"
+                ]
+            },
+            {
+                src: "https://i.postimg.cc/9FSx12Bj/6-20240701-194443-0005.png",
+                colorVersions: [
+                    "https://i.postimg.cc/yxxPXpgd/5-20240701-194443-0004.png",
+                    "https://i.postimg.cc/9F4bDSHg/4-20240701-194443-0003.png"
+                ]
+            },
+            {
+                src: "https://i.postimg.cc/W47wRc0z/8-20240701-194444-0007.png",
+                colorVersions: [
+                    "https://i.postimg.cc/tgrDZHJf/9-20240701-194444-0008.png",
+                    "https://i.postimg.cc/MHBYFM52/7-20240701-194443-0006.png"
+                ]
+            }
+        ];
+        let currentColorIndex = 0;
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            currentColorIndex = 0;
+            updateImage();
+        }
+
+        function changeImageColor() {
+            currentColorIndex = (currentColorIndex + 1) % (images[currentImageIndex].colorVersions.length + 1);
+            updateImage();
+        }
+
+        function updateImage() {
+            const imageUrl = currentColorIndex === 0 ? images[currentImageIndex].src : images[currentImageIndex].colorVersions[currentColorIndex - 1];
+            document.getElementById("image").src = imageUrl;
+            sessionStorage.setItem('selectedImage', imageUrl);  // Adiciona a URL da imagem selecionada ao sessionStorage
+        }
+    </script>
+</head>
+<body onload="updateImage()">
+    <h2>Resultado para "Presente Natura Homem Nós"</h2>
+    <img id="image" src="" alt="Imagem Gerada">
+    <div class="button-container">
+        <button class="button" onclick="showNextImage()">Quero ver outro modelo</button>
+        <button class="button" onclick="changeImageColor()">Mudar cor deste modelo</button>
+        <a href="baixar.html" class="button">Próximo</a>
+    </div>
+</body>
+</html>
