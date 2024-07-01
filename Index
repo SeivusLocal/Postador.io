@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postador.io</title>
+    <style>
+        body {
+            background-color: #FFDEAD;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 20%;
+        }
+        h1 {
+            color: #000;
+        }
+        h2 {
+            color: #000;
+        }
+        .button {
+            background-color: #8B0000;
+            color: #FFF;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Postador.io</h1>
+    <h2>Crie uma imagem para meu Instagram e Facebook</h2>
+    <a href="city.html" class="button">Começar</a>
+</body>
+</html>
