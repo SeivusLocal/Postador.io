@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postador.io - Compartilhar Imagem</title>
+    <style>
+        body {
+            background-color: #FFDEAD;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 10%;
+        }
+        h2 {
+            color: #000;
+        }
+        .button {
+            background-color: #8B0000;
+            color: #FFF;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 5px;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        a {
+            color: #8B0000;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function openInstagram() {
+            window.location.href = "intent://instagram.com/#Intent;package=com.instagram.android;scheme=https;end";
+        }
+
+        function openFacebook() {
+            window.location.href = "fb://facewebmodal/f?href=https://www.facebook.com";
+        }
+    </script>
+</head>
+<body>
+    <h2>Compartilhar Imagem</h2>
+    <div class="button-container">
+        <button class="button" onclick="openInstagram()">Compartilhar no Instagram</button>
+        <button class="button" onclick="openFacebook()">Compartilhar no Facebook</button>
+    </div>
+    <div class="tutorials">
+        <p><a href="https://youtu.be/hshoQ6q7aLw?si=_20uBQebZfgXU_3D" target="_blank">Não sabe como compartilhar sua imagem no Instagram? Veja este tutorial.</a></p>
+        <p><a href="https://youtu.be/TS-SfyzX_vE?si=fEV6fuGg4b9fWuoC" target="_blank">Não sabe como compartilhar sua imagem no Facebook? Veja este tutorial.</a></p>
+        <p><a href="https://youtu.be/YUYzi1hgOpc?si=WnfQY7eoI6SMZPrz" target="_blank">Como compartilhar a imagem em alta qualidade no Instagram.</a></p>
+        <p><a href="https://youtu.be/4Zy5S5MX8-g?si=tgKVYlgjsG0Xs2Hv" target="_blank">Como compartilhar a imagem em alta qualidade no Facebook.</a></p>
+    </div>
+</body>
+</html>
